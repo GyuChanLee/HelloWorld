@@ -15,7 +15,7 @@ public class CelsiusToFahrenheit
 		
 		c = 5/9.0*(f-32);
 		
-		System.out.printf("화씨온도 : %.1f도 >>> 섭씨온도 : %.1f도%n",f,c);
+		System.out.printf("화씨온도 : %.1f도 >>> 섭씨온도 : %.1f도입니다.%n",f,c);
 		scn.close();
 		double x = FahrenheitToCelsius.changeCToF(37.8);
 		System.out.println(x);
