@@ -15,7 +15,7 @@ public class GetAverage
 		System.out.println("세번째 숫자를 입력하세요.");
 		int num3 = scn.nextInt();
 		// 정수 연산 > 결과값 정수. 
-		double avg = (num1+num2+num3)/3.0f;
+		double avg = (num1+num2+num3)/3.0d;
 		// 결과갑 : 입력한 세 정수는 10, 15, 15, 평균은 13.33333 입니다.
 		System.out.printf("입력한 세 정수는 %3d, %d, %d 이고 평균은 %.5f 입니다.%n",num1,num2,num3,avg);
 		for(int i = 0; i < 10; i++)
