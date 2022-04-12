@@ -40,7 +40,6 @@ public class ForExample3
 				System.out.println("100의 약수 : "+i);
 			}
 		}
-		System.out.println();
 		
 	}
 

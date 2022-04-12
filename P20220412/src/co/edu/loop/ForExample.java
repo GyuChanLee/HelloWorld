@@ -25,12 +25,14 @@ public class ForExample
 		{
 			System.out.println(num+" * "+i+" = "+(num*i));
 		}
+		System.out.println();
 		
 		for(int i = 9; i>=1;i--)
 		{
 			System.out.println(num+" * "+i+" = "+(num*i));
 		}
-
+		System.out.println();
+		
 		for (int i = 2; i <= 5; i++) 
 		{
 			for (int j = 1; j <= 9; j++) 
@@ -39,7 +41,8 @@ public class ForExample
 			}
 			System.out.println();
 		}
-
+		System.out.println();
+		
 		int sum1 = 0;
 		for (int i = 1; i <= 10; i++) 
 		{
