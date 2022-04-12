@@ -11,6 +11,9 @@ public class Training1
 		
 		System.out.println("");
 		
-		
+		// 가위바위보 게임 만들기
+		int scissors = 1;
+		int rock = 2;
+		int paper = 3;
 	}	
 }
