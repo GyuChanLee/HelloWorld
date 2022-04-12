@@ -1,18 +1,29 @@
 package co.edu.variable;
 
+import java.util.Scanner;
+
 public class Homework_orange 
 {
 
 	public static void main(String[] args) 
 	{
-		int orange = 127;
-		int box5 = orange / 5;
-		int remain5 = orange % 5;
-		int box10=orange/10;
-		int remain10=orange%10;
+		Scanner scn = new Scanner(System.in);
+		System.out.println("오렌지의 개수를 입력하세요 > ");
+		int orange = scn.nextInt();
 		
-		System.out.println("5개 짜리 상자의 개수 : "+box5+" 남은 오렌지 개수 : "+remain5);
-		System.out.println("10개 짜리 상자의 개수 : "+box10+" 남은 오렌지 개수 : "+remain10);
+		int box10=orange/10;
+		orange %= 10; 
+		
+		int box5 = orange / 5;
+		if((orange%5)>0)
+		{
+			box5++;
+		}
+		
+		scn.close();
+		
+		System.out.println("총 10개 짜리 상자의 개수 : "+box10+" /  총 5개 짜리 상자의 개수 : "+box5);
+
 	}
 
 }
