@@ -2,7 +2,7 @@ package co.edu.dimension;
 
 import java.util.Scanner;
 
-public class ch4_6 
+public class ch5_6 
 {
 
 	public static void main(String[] args) 
