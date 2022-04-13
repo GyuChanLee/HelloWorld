@@ -12,22 +12,20 @@ public class ArrayExample5
 		
 		// 학생 다섯명 수학점수
 		int[] mathScores = new int[5];
-		int max=0, min=0;
+		int max=0, min=100;
 		
 		for(int i=0; i<mathScores.length;i++)
 		{
 			System.out.println((i+1)+"번째 학생의 점수를 입력하세요(0-100점 사이) > ");
 			mathScores[i] = scn.nextInt();
 			
-			min=mathScores[0];
-			
-			if(max<mathScores[i])
+			if(max<mathScores[i]) // 최고점.
 			{
 				max = mathScores[i];
 			}
 			
 
-			if(min>mathScores[i])
+			if(min>mathScores[i]) //최저점.
 			{
 				min = mathScores[i];
 			}
@@ -36,7 +34,8 @@ public class ArrayExample5
 		
 		System.out.println("최고점은 "+max+"점, 최저점은 "+min+"점");
 		System.out.println("학생 수학점수 목록 : "+Arrays.toString(mathScores));
-		scn.close();
+		System.out.println();
+		
 	}
 
 }
