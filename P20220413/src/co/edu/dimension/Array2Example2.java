@@ -30,8 +30,8 @@ public class Array2Example2
 			for(int j=0; j<scores[i].length; j++)
 			{
 				sum += scores[i][j];
-				avg = 1.0 * sum / scores[i].length;
 			}
+			avg = 1.0 * sum / scores[i].length;
 			System.out.println((i+1)+"반의 총점 : "+sum+", 평균 : "+avg);
 			System.out.println();
 		}

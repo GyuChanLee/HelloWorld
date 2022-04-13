@@ -25,8 +25,18 @@ public class ch4_6
 			{
 				if(studentNum != 0)
 				{
-					System.out.println("이미 학생수를 지정했습니다.");
-					continue;
+					System.out.println("이미 학생수를 지정했습니다. 바꾸시겠습니까? 바꾸려면 Y > ");
+					String y = scn.nextLine();
+					if(y.equals("Y") || y.equals("y"))
+					{
+						System.out.println("학생 수를 입력하세요 > ");
+						studentNum = Integer.parseInt(scn.nextLine());
+						System.out.println("학생수> "+studentNum);
+					}
+					else
+					{
+						continue;
+					}
 				}
 				System.out.println("학생 수를 입력하세요 > ");
 				studentNum = Integer.parseInt(scn.nextLine()); // 성능적으로 nextInt()보다 낫고, 엔터키 문자가 인식되어 데이터가 잘못 입력되는 것을 방지함.

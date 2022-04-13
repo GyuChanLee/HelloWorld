@@ -19,7 +19,7 @@ public class ArrayExample6
 
 			System.out.println(student[i] + " 학생의 점수를 입력하세요 > ");
 			scores[i] = scn2.nextInt();
-			scn2.nextLine();
+			scn2.nextLine(); // 반복문에서 입력이 반복될 때, 엔터키가 string으로 인식되어 제대로 데이터가 입력되지 않는 현상을 방지. > 그냥 nextLine으로 받고 parseInt로 파싱하는 것이 나음.
 		}
 
 		while (true) 

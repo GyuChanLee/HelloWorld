@@ -6,7 +6,7 @@ public class ArrayExample7
 	public static void main(String[] args) 
 	{ // 2022년 4월의 달력표 그리기.
 		String[] days = {"Sun","Mon","Tue","Wed","Thu","Fri","Sat"};
-		int lnth = getLastDay(5);
+		int lnth = getLastDay(2);
 		int[] intAry = new int[lnth];
 		
 		for(int i=0;i<intAry.length;i++)
@@ -21,7 +21,7 @@ public class ArrayExample7
 		
 		System.out.println();		
 		
-		int spc = getDayInfo(5); // 매 월 1일이 늘 sun이 아니므로 1일의 요일위치를 조정.
+		int spc = getDayInfo(2); // 매 월 1일이 늘 sun이 아니므로 1일의 요일위치를 조정.
 		for(int i=0;i<spc;i++) // 첫주에 5칸 만큼 공백 입력.
 		{
 			System.out.printf("%4s"," ");

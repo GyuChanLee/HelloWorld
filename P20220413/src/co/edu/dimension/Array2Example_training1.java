@@ -31,14 +31,14 @@ public class Array2Example_training1
 		System.out.println();
 		
 		// 배열에서는 인덱스 주소값으로 값을 지정, 호출.
-//		for(int i=4; i>=0;i--)
-//		{
-//			for(int j=0; j<5; j++)
-//			{
-//				System.out.printf("[%2d]",arr[i][j]);
-//			}
-//			System.out.println();
-//		}
+		for(int i=4; i>=0;i--)
+		{
+			for(int j=4; j>=0; j--)
+			{
+				System.out.printf("[%2d]",arr[i][j]);
+			}
+			System.out.println();
+		}
 	}
 
 }
