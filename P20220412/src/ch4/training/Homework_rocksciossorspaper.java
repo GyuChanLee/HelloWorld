@@ -16,25 +16,36 @@ public class Homework_rocksciossorspaper
 			System.out.println("가위 바위 보 게임 시작합니다. 뭐 낼 건지 생각하세요... ");
 			System.out.println("1 : 가위, 2 : 바위, 3 : 보 !!");
 			int user = scn.nextInt();
+			String[] name = {"가위","바위","보"};
 			
 			if((user==1 && rand==3))
 			{
-				System.out.println("당신이 이겼습니다!  상대의 패 : "+rand+"  (1:가위,2:바위,3:보)");
+				System.out.println("당신이 이겼습니다!  상대의 패 : "+name[rand-1]+"  (1:가위,2:바위,3:보)");
 				break;
 			}
 			else if((user==3 && rand==1))
 			{
-				System.out.println("당신이 졌습니다!  상대의 패 : "+rand+"  (1:가위,2:바위,3:보)");
+				System.out.println("당신이 졌습니다!  상대의 패 : "+name[rand-1]+"  (1:가위,2:바위,3:보)");
 				break;
 			}
 			else if(user>rand)
 			{
-				System.out.println("당신이 이겼습니다!  상대의 패 : "+rand+"  (1:가위,2:바위,3:보)");
+				if(user>=4)
+				{
+					System.out.println("1, 2, 3 중에 하나를 고르세요!!!");
+					continue;
+				}
+				System.out.println("당신이 이겼습니다!  상대의 패 : "+name[rand-1]+"  (1:가위,2:바위,3:보)");
 				break;
 			}
 			else if(user<rand)
 			{
-				System.out.println("당신이 졌습니다!  상대의 패 : "+rand+"  (1:가위,2:바위,3:보)");
+				if(user<=0)
+				{
+					System.out.println("1, 2, 3 중에 하나를 고르세요!!!");
+					continue;
+				}
+				System.out.println("당신이 졌습니다!  상대의 패 : "+name[rand-1]+"  (1:가위,2:바위,3:보)");
 				break;
 			}
 			else
