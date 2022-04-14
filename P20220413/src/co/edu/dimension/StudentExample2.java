@@ -36,6 +36,12 @@ public class StudentExample2
 			{
 				System.out.printf("해당이름 %s은/는 %d살이고 점수는 %d점 입니다!!!%n",students[i].studName,students[i].age,students[i].score);
 			}
+			else
+			{
+				System.out.println("그런 학생은 없습니다!");
+				break;
+			}
+			
 		}
 		
 	}

@@ -110,6 +110,7 @@ public class ch5_6
 				run = false;
 			}
 		}
+		scn.close();
 	}
 
 }
