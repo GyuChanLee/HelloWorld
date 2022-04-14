@@ -90,17 +90,20 @@ public class BoardList
 		return null; // 찾는 값이 없는 경우.
 	}
 	
-	public Board searchWriter(String writer)
+	public Board[] searchWriter(String writer)
 	{
 		for(int i=0; i<boards.length; i++)
 		{
+			if(boards[i]==null)
+			{
+				continue;
+			}
 			if(boards[i].getWriter().equals(writer))
 			{
 				int currentCnt = boards[i].getSearchCnt();
 				boards[i].setSearchCnt(currentCnt+1); // 조회수 증가
-				return boards[i];
 			}
 		}
-		return null;
+		return boards;
 	}
 }

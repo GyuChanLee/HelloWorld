@@ -111,16 +111,15 @@ public class BoardExample
 				System.out.println("조회할 작성자의 이름을 적으시오 > ");
 				String name = scn.nextLine();
 				
-				Board getBoard = boardList.searchWriter(name);
-				if(getBoard == null)
+				Board[] getBoard = boardList.searchWriter(name);
+				for(int i=0; i<getBoard.length; i++)
 				{
-					System.out.println("조회결과가 없습니다.");
+				    if(getBoard[i]!= null)
+					{
+						getBoard[i].getDetailInfo();
+					}
 				}
-				else
-				{// if?
-					for(int i=0; i<boardList.length;)
-					getBoard.getDetailInfo();
-				}
+				
 				
 			}
 			else if(menu == 7)
