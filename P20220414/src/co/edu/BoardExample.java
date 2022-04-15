@@ -17,7 +17,6 @@ public class BoardExample
 			System.out.println("1.추가  2.수정  3.목록  4.삭제  5.한건 조회 6. 작성자 조회  9.종료");  //6. 숙제.
 			System.out.println("선택 >>");
 			int menu = Integer.parseInt(scn.nextLine());
-			
 			if(menu == 1)
 			{
 				System.out.println("글번호 입력 >>");
@@ -111,16 +110,16 @@ public class BoardExample
 				System.out.println("조회할 작성자의 이름을 적으시오 > ");
 				String name = scn.nextLine();
 				
+				System.out.println("게시글번호   제목           내용           사용자    조회수 ");
+				System.out.println("====================================================");
 				Board[] getBoard = boardList.searchWriter(name);
 				for(int i=0; i<getBoard.length; i++)
 				{
 				    if(getBoard[i]!= null)
 					{
-						getBoard[i].getDetailInfo();
+						getBoard[i].getInfo();
 					}
 				}
-				
-				
 			}
 			else if(menu == 7)
 			{

@@ -88,22 +88,26 @@ public class BoardList
 			}
 		}
 		return null; // 찾는 값이 없는 경우.
-	}
+	} 
 	
 	public Board[] searchWriter(String writer)
 	{
-		for(int i=0; i<boards.length; i++)
+		Board[] sBoards = new Board[5];
+		for(int i=0; i<boards.length; i++) // 찾을 대상 배열 >> 중첩for문 > 맨위의 for/if : 찾을 것이 null값이 아닌지, 찾는 작성자와 맞는지 확인
 		{
-			if(boards[i]==null)
+			if(boards[i]!=null && boards[i].getWriter().equals(writer))
 			{
-				continue;
-			}
-			if(boards[i].getWriter().equals(writer))
-			{
-				int currentCnt = boards[i].getSearchCnt();
-				boards[i].setSearchCnt(currentCnt+1); // 조회수 증가
+				for(int j=0; j<sBoards.length;j++) // 새롭게 반환할 배열.  >> 안쪽 for/if : 새로 만든 배열이 비어있다면 집어넣고 break해서 중복X.
+				{
+				
+					if(sBoards[j]==null)
+					{
+						sBoards[j] = boards[i];
+						break;
+					}
+				}
 			}
 		}
-		return boards;
+		return sBoards;
 	}
 }
