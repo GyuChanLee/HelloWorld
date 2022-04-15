@@ -57,6 +57,12 @@ public class Board
 		this.searchCnt = searchCnt;
 	}
 	
+	@Override // 어노테이션  부모클래스의 메서드 > 자식클래스에서 재정의.  : 추가적인 정보를 제공하는 기능
+	public String toString()
+	{
+		return "어노테이션 연습";
+	}
+	
 	public void getInfo()
 	{ // 게시글 번호 제목 내용 작성자 조회수
 		System.out.printf("%5d  %-10s %-15s %-5s %3d%n",boardNo,title,content,writer,searchCnt);

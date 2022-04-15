@@ -1,6 +1,6 @@
 package co.edu;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class BoardExample 
 {
@@ -16,7 +16,17 @@ public class BoardExample
 		{
 			System.out.println("1.추가  2.수정  3.목록  4.삭제  5.한건 조회 6. 작성자 조회  9.종료");  //6. 숙제.
 			System.out.println("선택 >>");
-			int menu = Integer.parseInt(scn.nextLine());
+			int menu = -1;
+			try
+			{
+				menu = Integer.parseInt(scn.nextLine()); // 숫자변환
+			}
+			catch(Exception e)
+			{
+				System.out.println("똑바로 치세요");
+			}
+			scn.nextLine();
+			
 			if(menu == 1)
 			{
 				System.out.println("글번호 입력 >>");
