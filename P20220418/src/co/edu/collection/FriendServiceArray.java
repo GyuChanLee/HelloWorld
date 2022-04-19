@@ -53,6 +53,7 @@ public class FriendServiceArray implements FriendService // 배열
 			}
 		}
 		
+		
 		System.out.println("친구 삭제 완료");
 		System.out.println();
 	}
