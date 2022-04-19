@@ -9,7 +9,7 @@ public class Friend
 	private String phone;
 	
 	// 생성자
-	protected Friend() {} // protected
+	public Friend() {} // protected
 	
 	public Friend(String name, String phone) 
 	{
