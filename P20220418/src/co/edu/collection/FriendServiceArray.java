@@ -2,6 +2,7 @@ package co.edu.collection;
 
 import java.util.*;
 import co.edu.friend.Friend;
+import co.edu.friend.Gender;
 
 public class FriendServiceArray implements FriendService // 배열
 {
@@ -69,6 +70,12 @@ public class FriendServiceArray implements FriendService // 배열
 				return friends[i];
 			}
 		}
+		return null;
+	}
+	
+	@Override
+	public ArrayList<Friend> findGender(Gender gender)
+	{
 		return null;
 	}
 	

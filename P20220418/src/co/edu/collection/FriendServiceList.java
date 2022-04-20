@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import co.edu.friend.Friend;
+import co.edu.friend.Gender;
 
 public class FriendServiceList implements FriendService // 컬렉션
 {
-	ArrayList<Friend> friends = new ArrayList<Friend>();
+	ArrayList<Friend> friends = new ArrayList<Friend>(); // <> 제네릭으로 Friend 객체만 매개변수, 리턴값으로 사용.
 
 	@Override
 	public void addFriend(Friend friend) 
@@ -59,6 +60,24 @@ public class FriendServiceList implements FriendService // 컬렉션
 			}
 		}
 		return null;
+	}
+	
+	@Override
+	public ArrayList<Friend> findGender(Gender gender)
+	{
+		ArrayList<Friend> list = new ArrayList<Friend>();
+		
+		for(int i=0; i<friends.size();i++)
+		{
+			if(friends.get(i).getGender() == gender)
+			{
+				// 열거형 타입 > 클래스 타입과 같은 참조형 데이터 타입.
+				// 기본타입 == 비교 연산자.
+				// 열거형 == 비교 연산자 사용.
+				list.add(friends.get(i));
+			}
+		}
+		return list;
 	}
 
 }

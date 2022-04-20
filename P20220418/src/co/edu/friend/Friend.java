@@ -7,6 +7,7 @@ public class Friend
 	// 필드
 	private String name;
 	private String phone;
+	private Gender gender; // MEN, WOMEN; 열거형.
 	
 	// 생성자
 	public Friend() {} // protected
@@ -15,6 +16,13 @@ public class Friend
 	{
 		this.name = name;
 		this.phone = phone;
+	}
+	
+	public Friend(String name, String phone, Gender gender)
+	{
+		this.name = name;
+		this.phone = phone;
+		this.gender = gender;
 	}
 	
 	// 메서드
@@ -37,11 +45,21 @@ public class Friend
 	{
 		this.phone = phone;
 	}
+	
+	
+
+	public Gender getGender() {
+		return gender;
+	}
+
+	public void setGender(Gender gender) {
+		this.gender = gender;
+	}
 
 	@Override
 	public String toString() 
 	{
-		return "Friend [name=" + name + ", phone=" + phone + "]";
+		return "Friend [name=" + name + ", phone=" + phone + ", gender="+gender+"]";
 	}
 
 	
