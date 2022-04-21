@@ -11,8 +11,6 @@ public class BoardApp implements BoardService
 	@Override
 	public Board regist() 
 	{
-		System.out.println("글 번호 입력 >");
-		int num = Integer.parseInt(scn.nextLine());
 		System.out.println("글 제목 입력 >");
 		String title = scn.nextLine();
 		System.out.println("글 내용 입력 >");
@@ -22,8 +20,10 @@ public class BoardApp implements BoardService
 //		System.out.println("작성일시 입력(ex: 2022-04-20) >");
 //		String date = scn.nextLine();
 		LocalDateTime currentDate = LocalDateTime.now();
-		Board newBoard = new Board(num, title, content, writer, currentDate);
+		Board newBoard = new Board(title, content, writer, currentDate);
+		newBoard.setBoardNum(Board.boardNum++);
 		boards.add(newBoard);
+		
 		return newBoard;
 	}
 

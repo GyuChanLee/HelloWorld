@@ -4,7 +4,7 @@ import java.time.*;
 
 public class Board
 {
-	int boardNum;
+	public static int boardNum = 1;
 	private String title;
 	private String content;
 	private String writer;
@@ -23,10 +23,9 @@ public class Board
 //		this.date = date;
 //	}
 	
-	public Board(int boardNum, String title, String content, String writer, LocalDateTime date2)
+	public Board(String title, String content, String writer, LocalDateTime date2)
 	{
 		super();
-		this.boardNum = boardNum;
 		this.title = title;
 		this.content = content;
 		this.writer = writer;
@@ -80,6 +79,9 @@ public class Board
 	public void setDate2(LocalDateTime date2) {
 		this.date2 = date2;
 	}
+	
+	
+	
 
 	@Override
 	public String toString() 

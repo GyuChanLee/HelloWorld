@@ -8,6 +8,5 @@ public class test {
 		System.out.println(currentDate);
 		System.out.println();
 		
-		
 	}
 }
