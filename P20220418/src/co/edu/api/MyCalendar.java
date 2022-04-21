@@ -8,7 +8,7 @@ public class MyCalendar
 	public static void main(String[] args) 
 	{
 		String y = "2022";
-		String m = "02"; // 02 or 2
+		String m = "10"; // 02 or 2
 		
 		showCal(y,m);
 	}
@@ -42,7 +42,7 @@ public class MyCalendar
 		// 매 월 1일이 늘 sun이 아니므로 1일의 요일위치를 조정.
 		
 		int spc=0;
-		for(int i=1; i<7;i++)
+		for(int i=1; i<=7;i++)
 		{
 			if(cal.get(Calendar.DAY_OF_WEEK)==i)
 			{
