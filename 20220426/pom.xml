@@ -21,6 +21,7 @@
 
 	</dependencies>
 	<!-- 빌드 옵션을 정의하는 곳 : 한번설정 후 복사해오기.  -->
+	<!-- mainClass에 main메서드가 있는 실행클래스를 지정.   -->
 	<build>
 		<plugins>
             <plugin>

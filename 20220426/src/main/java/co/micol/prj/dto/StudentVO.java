@@ -11,6 +11,11 @@ public class StudentVO // java의 VO객체
 	private Date birthDay; // 생년월일
 	
 	public StudentVO() {}
+	
+	public StudentVO(String name) // 생성자 오버로딩.
+	{
+		this.name = name;
+	}
 
 	public String getStudentId() 
 	{

@@ -20,7 +20,7 @@ public class ListTest
 			System.out.println(str);
 		}
 	}
-	
+	// arrayList : 순차검색에서 제일 빠름. 중간 추가,삭제는 느림.
 	public void studentList()
 	{
 		List<StudentVO> students = new ArrayList<StudentVO>();
