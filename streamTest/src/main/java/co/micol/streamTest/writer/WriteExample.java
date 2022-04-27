@@ -9,11 +9,11 @@ public class WriteExample
 		try 
 		{
 			OutputStream os = new FileOutputStream("C:\\Temp\\test2.txt");
-			byte[] arr = {'A','B','C'}; // 타입에 배열을 붙이길 권장.
+			byte[] arr = {40,41,42}; // 타입에 배열을 붙이길 권장.
 			
 			os.write(arr);
-			os.flush();
-			os.close();
+			os.flush(); // 버퍼 비우기
+			os.close(); // 스트림 닫기.
 		}
 		catch (Exception e)
 		{
