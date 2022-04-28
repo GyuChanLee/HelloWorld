@@ -28,6 +28,7 @@ public class ReadCopy
 			wr.flush();
 			wr.close();
 			// Object 파일에 복사하기.
+			System.out.println("File Copy Complete");
 		}
 		catch(Exception e)
 		{
