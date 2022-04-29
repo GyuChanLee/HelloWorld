@@ -37,7 +37,6 @@ public class MagicSquare
 			}
 		}
 		toPritnt(arr);
-		scn.close();
 	}
 	
 	private  void toPritnt(int[][] arr)

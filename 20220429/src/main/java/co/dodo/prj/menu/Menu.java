@@ -30,7 +30,8 @@ public class Menu
 		do
 		{
 			mainTitle();
-			int key = Integer.parseInt(scn.nextLine());
+			
+			int key = Integer.parseInt(scn.next());
 			
 			switch(key)
 			{
