@@ -29,8 +29,8 @@ public class DataSource
 		try 
 		{
 			
-			Class.forName(driver);
-			conn = DriverManager.getConnection(url, user, pw);
+			Class.forName(driver); // dbms에 사용할 드라이버 로드.
+			conn = DriverManager.getConnection(url, user, pw); // 드라이버매니저를 통해 커넥션 객체 로드.
 			System.out.println("DB 연결 성공!!!!");
 		}
 		catch(Exception e)
@@ -41,8 +41,9 @@ public class DataSource
 		return conn;
 	}
 	
-	private void dbconfiguration() // properties파일로 jdbc 접속시 필요한 데이터 불러오기.
+	private void dbconfiguration() // 외부 properties객체파일로 jdbc 접속시 필요한 데이터 불러오기 > resorces 소스파일에 넣기.
 	{
+		// 직접 계정정보를 쓰면, 바뀌면 다시 컴파일해야함. > propertise파일은 변경 후, 재실행만 해도 가능.
 		Properties properties = new Properties();
 		try
 		{
