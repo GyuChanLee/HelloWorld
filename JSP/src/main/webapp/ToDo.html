@@ -79,7 +79,17 @@ ul li.checked::before {
   background-color: #f44336;
   color: white;
 }
+.update {
+  position: absolute;
+  right: 50px;
+  top: 0;
+  padding: 8px 16px 8px 16px;
+}
 
+.update:hover {
+  background-color: #f44336;
+  color: white;
+}
 /* Style the header */
 .header {
   background-color: #f44336;
@@ -157,8 +167,27 @@ for (i = 0; i < close.length; i++) {
   close[i].onclick = function() {
     var div = this.parentElement;
     div.style.display = "none";
+    
+    
+    let title = div1.childNodes[0].nodeValue;
+    let temp = 0;
+    let del = 'delete';
+    let param = `cmd=${del}&title=${title}&listNumber=${temp}`;
+    let xhtp = new XMLHttpRequest();
+    
+    console.log(param);
+    
+    xhtp.open('POST','TodoServlet');
+    xhtp.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+    xhtp.send(param);
+    xhtp.onload = function() {
+        console.log(xhtp.responseText);
+    }
   }
 }
+
+// 수정
+var update = document.getElementsByClassName("update");
 
 // Add a "checked" symbol when clicking on a list item
 var list = document.querySelector('ul');
@@ -184,7 +213,6 @@ function lists() {
 	function showList(json) {
 	    let list = document.getElementById('myUL');
 	    for(let i=0; i<json.length; i++){
-	    	console.log(json[i].title);
 	    	let title = json[i].title;
 	        makeEl(title);
 	    }
@@ -210,20 +238,78 @@ function lists() {
 	        var div1 = this.parentElement;
 	        div1.style.display = "none";
 	        
-	        console.log(div1);
-	        console.log(div1.childNodes[0]);
-	        
-	        let title = div1.childNodes[0];
-	        let param = `cmd=delete&title=${title}`;
+	        let title = div1.childNodes[0].nodeValue;
+	        let temp = 0;
+	        let del = 'delete';
+	        let param = `cmd=${del}&title=${title}&listNumber=${temp}`;
 	        let xhtp = new XMLHttpRequest();
-	        xhtp.open('post','TodoServlet');
+	        
+	        xhtp.open('POST','TodoServlet');
 	        xhtp.setRequestHeader('Content-type','application/x-www-form-urlencoded');
-	        xhtp.send();
+	        xhtp.send(param);
 	        xhtp.onload = function() {
 	            console.log(xhtp.responseText);
 	        }
+	        
 	      }
 	    }
+	    // 수정 기능
+	    // 수정 버튼
+	    let span2 = document.createElement("SPAN");
+	    let txt2 = document.createTextNode("insert");
+	    span2.className = "update";
+	    span2.appendChild(txt2);
+	    li1.appendChild(span2);
+	  
+		  for (i = 0; i < update.length; i++) {
+			  	update[i].onclick = function() {
+			      var div3 = this.parentElement;
+			      div3.style.display = "none";
+			  	  // 바꿀 todo의 아이디 찾아오기
+
+			  	  
+			  	  function num(div3) {
+			  		  let insertNum;
+			  		  // let div5 = this.parentElement;
+				  	  let title = div3.childNodes[0].nodeValue;
+				      let temp = 0;
+				      let one = 'one';
+				      let param1 = `cmd=${one}&title=${title}&listNumber=${temp}`;
+				      let xhtp1 = new XMLHttpRequest();
+				      
+				      xhtp1.open('POST','TodoServlet');
+				      xhtp1.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+				      xhtp1.send(param1);
+				      xhtp1.onload = function() {
+				          console.log(xhtp1.responseText);
+				          insertNum = xhtp1.responseText;
+				      }
+				      return insertNum;
+			  	  }
+			  	  
+			  	  let insert = num(div3);
+			  	  console.log(insert);
+					
+			      let change = "update";
+			  		
+			      console.log(div3.childNodes[0].nodeValue);
+			      
+			      let title4 = div3.childNodes[0].nodeValue;
+			      let temp4 = 0;
+			      let upd4 = 'update';
+			      let param4 = `cmd=${upd4}&title=${change}&listNumber=${insert}`;
+			      let xhtp4 = new XMLHttpRequest();
+			      
+			      console.log(param4);
+			      
+			      xhtp4.open('POST','TodoServlet');
+			      xhtp4.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+			      xhtp4.send(param4);
+			      xhtp4.onload = function() {
+			          console.log(xhtp4.responseText);
+			      }
+			    }
+			  }
 	}
 }
 
@@ -240,7 +326,20 @@ function newElement() {
     document.getElementById("myUL").appendChild(li);
   }
   document.getElementById("myInput").value = "";
-
+  
+  
+  let temp = 0;
+  let ins = 'insert';
+  let param = `cmd=${ins}&title=${inputValue}&listNumber=${temp}`;
+  let xhtp = new XMLHttpRequest();
+  
+  xhtp.open('POST','TodoServlet');
+  xhtp.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+  xhtp.send(param);
+  xhtp.onload = function() {
+      console.log(xhtp.responseText);
+  }
+  
   var span = document.createElement("SPAN");
   var txt = document.createTextNode("\u00D7");
   let input = document.createElement('input');
@@ -255,11 +354,52 @@ function newElement() {
     close[i].onclick = function() {
       var div = this.parentElement;
       div.style.display = "none";
+      
+      let title = div.childNodes[0].nodeValue;
+      let temp = 0;
+      let del = 'delete';
+      let param = `cmd=${del}&title=${title}&listNumber=${temp}`;
+      let xhtp = new XMLHttpRequest();
+      
+      xhtp.open('POST','TodoServlet');
+      xhtp.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+      xhtp.send(param);
+      xhtp.onload = function() {
+          console.log(xhtp.responseText);
+      }
     }
   }
+  
+  // 수정 버튼
+  let span2 = document.createElement("SPAN");
+  let txt2 = document.createTextNode("insert");
+  span2.className = "update";
+  span2.appendChild(txt2);
+  li.appendChild(span2);
+  
+  for (i = 0; i < update.length; i++) {
+	    update[i].onclick = function() {
+	      var div3 = this.parentElement;
+	      div3.style.display = "none";
+	      
+	      let title = div3.childNodes[0].nodeValue;
+	      let temp = 0;
+	      let upd = 'update';
+	      let param = `cmd=${upd}&title=${title}&listNumber=${temp}`;
+	      let xhtp = new XMLHttpRequest();
+	      
+	      xhtp.open('POST','TodoServlet');
+	      xhtp.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+	      xhtp.send(param);
+	      xhtp.onload = function() {
+	          console.log(xhtp.responseText);
+	      }
+	    }
+	  }
+  
 }
 
-// 수정 메서드
+// var userInput = prompt("당신의 이름은 무엇인가요?"+"");
 </script>
 
 </body>

@@ -43,7 +43,7 @@ public class TodoServlet extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/json;charset=utf-8");
 		TodoDAO dao = new TodoDAO();
-    	Gson gson = new GsonBuilder().create();
+//    	Gson gson = new GsonBuilder().create();
     	
     	int listNumber = Integer.parseInt(request.getParameter("listNumber"));
 		String title = request.getParameter("title");
@@ -53,11 +53,14 @@ public class TodoServlet extends HttpServlet {
     	// 추가
     	if(cmd.equals("insert")) {
     		dao.insertTodo(todo);
-    	} else if(cmd.equals("update")) { // 수정
-    		dao.updateTodo(todo);
     	} else if(cmd.equals("delete")) { // 삭제
-    		dao.deleteTodo(todo);
-    	}
+    		dao.deleteTodo(title);
+    	} else if(cmd.equals("one")) { // 한건의 아이디 찾기
+    		int returnNum = dao.todoOneNum(todo);
+    		response.getWriter().print(returnNum);
+    	}  else if(cmd.equals("update")) { // 수정
+    		dao.updateTodo(todo);
+    	} 
     	
 	}
 

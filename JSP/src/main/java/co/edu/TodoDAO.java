@@ -60,13 +60,34 @@ public class TodoDAO extends DAO {
 		}
 	}
 	
+	// todo 한건 가져와서 list_number 찾아오기.
+	public int todoOneNum(Todo todo) {
+		connect();
+		Todo todo1 = new Todo();
+		String sql = "SELECT * FROM TODO WHERE TITLE = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, todo.getTitle());
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				todo1.setListNumber(rs.getInt("list_number"));
+				todo1.setTitle(rs.getString("title"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return todo1.getListNumber();
+	}
+	
 	// todo 삭제
-	public void deleteTodo(Todo todo) {
+	public void deleteTodo(String title) {
 		connect();
 		String sql = "DELETE FROM TODO WHERE TITLE = ?";
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, todo.getTitle());
+			psmt.setString(1, title);
 			psmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
