@@ -263,39 +263,42 @@ function lists() {
 	  
 		  for (i = 0; i < update.length; i++) {
 			  	update[i].onclick = function() {
-			      var div3 = this.parentElement;
+			      let div3 = this.parentElement;
 			      div3.style.display = "none";
+			      
+			      num(num2);
+			      
 			  	  // 바꿀 todo의 아이디 찾아오기
-
-			  	  
-			  	  function num(div3) {
+			      
+			  	  function num(callback) {
 			  		  let insertNum;
 			  		  // let div5 = this.parentElement;
 				  	  let title = div3.childNodes[0].nodeValue;
 				      let temp = 0;
 				      let one = 'one';
 				      let param1 = `cmd=${one}&title=${title}&listNumber=${temp}`;
-				      let xhtp1 = new XMLHttpRequest();
 				      
+				      console.log(param1);
+				      
+				      let xhtp1 = new XMLHttpRequest();
 				      xhtp1.open('POST','TodoServlet');
 				      xhtp1.setRequestHeader('Content-type','application/x-www-form-urlencoded');
 				      xhtp1.send(param1);
 				      xhtp1.onload = function() {
 				          console.log(xhtp1.responseText);
 				          insertNum = xhtp1.responseText;
+					      callback(insertNum);
 				      }
-				      return insertNum;
+				      
 			  	  }
 			  	  
-			  	  let insert = num(div3);
-			  	  console.log(insert);
-					
+			  	 
+				  function num2(e) {	
 			      let change = "update";
 			  		
 			      console.log(div3.childNodes[0].nodeValue);
 			      
-			      let title4 = div3.childNodes[0].nodeValue;
-			      let temp4 = 0;
+			      let insert = e;
 			      let upd4 = 'update';
 			      let param4 = `cmd=${upd4}&title=${change}&listNumber=${insert}`;
 			      let xhtp4 = new XMLHttpRequest();
@@ -307,8 +310,12 @@ function lists() {
 			      xhtp4.send(param4);
 			      xhtp4.onload = function() {
 			          console.log(xhtp4.responseText);
+			          window.location.reload();
 			      }
-			    }
+				 }
+				  
+			    
+			  	}
 			  }
 	}
 }
