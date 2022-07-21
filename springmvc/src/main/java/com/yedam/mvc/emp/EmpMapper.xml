@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yedam.mvc.emp.EmpMapper">
+    <select id="getEmp" 
+    parameterType="com.yedam.mvc.emp.EmpVO" 
+    resultType="com.yedam.mvc.emp.EmpVO">
+        SELECT * 
+        FROM EMPLOYEES 
+        WHERE EMPLOYEE_ID = #{employee_id}
+    </select>
+    <select id="getList"
+    resultType="com.yedam.mvc.emp.EmpVO">
+        SELECT *
+        FROM EMPLOYEES
+        ORDER BY EMPLOYEE_ID
+    </select>
+</mapper>
