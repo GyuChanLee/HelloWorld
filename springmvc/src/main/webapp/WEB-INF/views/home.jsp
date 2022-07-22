@@ -9,6 +9,8 @@
 	Hello world!  
 </h1>
 
+<img src="img/chunsikLike.png">
 <P>  The time on the server is ${serverTime}. </P>
+   
 </body>
 </html>

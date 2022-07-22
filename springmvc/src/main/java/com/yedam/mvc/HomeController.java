@@ -19,7 +19,7 @@ import com.yedam.mvc.emp.EmpVO;
 /**
  * Handles requests for the application home page.
  */
-@Controller
+@Controller // POJO, @Component 상속받아 component역할도 포함. 빈등록, 서블릿이 호출할 수 있도록 command화.
 public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
@@ -28,7 +28,7 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	// mapping과 같은 원리
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = {"/","/home"}, method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
@@ -50,17 +50,5 @@ public class HomeController {
 		return vo;
 	}
 	
-	@Autowired EmpMapper mapper;
-	@RequestMapping("/emp")
-	public String emp(EmpVO vo, Model model) {
-		logger.info("파라미터 : "+vo.toString());
-		model.addAttribute("emp",mapper.getEmp(vo));
-		return "emp";
-	}
 	
-	@RequestMapping("/empList")
-	public String empList(Model model) {
-		model.addAttribute("list",mapper.getList());
-		return "empList";
-	}
 }

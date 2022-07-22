@@ -15,4 +15,45 @@
         FROM EMPLOYEES
         ORDER BY EMPLOYEE_ID
     </select>
+    <insert id="insertEmp">
+        <selectKey keyProperty="employee_id" order="BEFORE" resultType="string">
+            select nvl(max(employee_id),0)+1 from employees
+        </selectKey>
+        INSERT INTO 
+        EMPLOYEES (EMPLOYEE_ID,EMAIL,HIRE_DATE,JOB_ID,LAST_NAME)
+        VALUES(
+	        #{employee_id},
+	        #{email},
+	        #{hire_date},
+	        #{job_id},
+	        #{last_name}
+        )
+    </insert>
+    <select id="getSearchList"
+    parameterType="com.yedam.mvc.emp.EmpReqVO" 
+    resultType="com.yedam.mvc.emp.EmpVO">
+        SELECT *
+        FROM EMPLOYEES
+        <where>
+            <if test="employee_id != null and employee_id != ''">
+                and employee_id = #{employee_id}
+            </if>
+            <if test="depts != null and depts.length > 0">
+                <foreach collection="depts" item="dept">
+                    department_id = #{dept}
+                </foreach>
+            </if>
+            <if test="sdt != null and edt != null">
+                and hire_date > #{sdt} and<![CDATA[hire_date <= #{edt}]]>
+            </if>
+        </where>
+        ORDER BY EMPLOYEE_ID
+    </select>
+    
+    <update id="update"
+     parameterType="com.yedam.mvc.emp.EmpVO">
+        update employees 
+        set last_name = #{last_name,jdbcType=VARCHAR} 
+        where employee_id = #{employee_id,jdbcType=VARCHAR}
+    </update>
 </mapper>

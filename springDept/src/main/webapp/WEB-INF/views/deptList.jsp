@@ -47,10 +47,10 @@ table.type02 td {
     </tr>
     <c:forEach var="dept" items="${list}">
     <tr scope="row">    
-        <td>${dept.department_id}</td>  
-        <td>${dept.department_name}</td>  
-        <td>${dept.manager_id}</td>  
-        <td>${dept.location_id}</td>
+        <td>${dept.departmentId}</td>  
+        <td>${dept.departmentName}</td>  
+        <td>${dept.managerId}</td>  
+        <td>${dept.locationId}</td>
     </tr>
     </c:forEach>
     </table> 
